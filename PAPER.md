@@ -35,9 +35,10 @@ browser showed that JavaScript rendering does not rescue them: the listings
 appear as text, and the structured data the classifier asks for is absent both
 before and after rendering.
 
-Three distinct failure shapes appeared, each of which a two-state reader records
-as an ordinary empty result. Two occurred inside programs written specifically
-to prevent them, including one written on the day of the survey by the author.
+Four distinct failure shapes appeared, each of which a two-state reader records
+as an ordinary empty result. The fourth was found while checking a link for this
+paper. Two occurred inside programs written specifically to prevent them,
+including one written on the day of the survey by the author.
 
 The contribution is a contract: six rules, and the finding that they are hard to
 keep even when you already know about them.
@@ -202,7 +203,7 @@ not publish machine-readable records of the kind asked for, at any point in its
 lifecycle. That is a stronger finding than the one it replaces, and a worse one
 for anyone planning to read these sites without a browser.
 
-## 5. Three shapes of silent failure
+## 5. Four shapes of silent failure
 
 A non-zero count that is four years old. Three pages returned events. Their
 newest records were dated 2022-08-15, 2021-12-12 and 2021-12-26, on both runs.
@@ -226,6 +227,18 @@ generic discovery page. A made-up city name at the same URL shape returned
 generic discovery page, titled *Discover Events*, with no structured data at
 all. The absence of a 404 is not evidence that the requested thing exists; the
 size comparison against a deliberately invalid request is what revealed it.
+
+A status code that disagrees with the page. The fourth shape turned up while
+checking a link for this paper, on the author's own site. On 16 September 2026
+the journal entry cited in §6 was fetched two ways within the same minute. Over
+HTTPS it returned **HTTP 404**, 770 bytes, and the word `firstwrong` zero times.
+In a browser the same URL rendered 5,717 characters of that entry. The site is a
+client-rendered application on GitHub Pages, which serves its 404 shell for any
+path it does not recognise and lets the client router find the page. A keyless
+reader records `ERROR`. A person records a working link. Neither is misreading
+the transport; they are reading two different answers to the same request, and
+an agent that only has two states will file this page next to a server that is
+down.
 
 ## 6. The instrument catches the disease
 
@@ -255,9 +268,34 @@ wrong: the content renders, the structured data never exists. The state machine
 was right again, and the explanation attached to it was a guess wearing the
 clothes of a measurement.
 
-On 9 September 2026 the author found this same class in five of his own
-repositories at once, one of them `firstwrong`, a tool whose stated purpose is
-locating the first point at which a process goes wrong.
+This is not the first time. On 9 September 2026 the author reviewed his own
+repositories and found the same shape in five of them in one afternoon, written
+up at the time in a journal entry called *The bug was in the tool I built to
+find the bug*:
+
+- `firstwrong` tells a student the first line of their working that is wrong.
+  When the model's reply could not be read, it printed **"No wrong line found."**
+  That is a pass. The tool told the student their work was fine because it could
+  not read the answer, which is the exact failure the tool exists to prevent.
+- `apisurface` reports what an npm package removed between versions. It printed
+  **"0 changes, this is a real zero"** for `@types/node` while having read 1 file
+  out of 89. It was right about the file it read and wrong about how many there
+  were.
+- `skillcheck` counts which installed tools have ever been used. When the folder
+  it scans was missing or unreadable it printed **"60 skills installed, 0 ever
+  used, across 0 sessions"** and exited 0, which is byte for byte what it prints
+  on a machine that genuinely never used one.
+- `mdwatch` watches a workspace and reports what needs attention. A byte order
+  mark at the front of `tasks.json` broke the parse, so it printed **"No open
+  tasks."** with a task sitting at blocked inside that file.
+- `synth` summarises a paper with a page number on every claim. Its page reader
+  returned nothing both for a blank page in the middle and for a page past the
+  end, so a paper with a blank page four became a three page paper, and the tool
+  then accused the model of citing pages that do not exist.
+
+Five for five. Every tool the author had written that reads something and
+reports a count carried the same bug, in code written by someone who had already
+written the rule down.
 
 A four-state contract protects only the layer that implements it. Every boundary
 downstream, whether a temp file, a log line, a sentence or a paper, can silently
