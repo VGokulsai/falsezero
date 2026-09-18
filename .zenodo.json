@@ -1,0 +1,21 @@
+{
+  "title": "Empty Is Not Unreachable: four states a web-reading agent needs, and what happens in the twenty-eight sources that only have two",
+  "description": "A web-reading agent needs four states, not two. Nothing was there is a result; I could not look is not. This paper probes 40 public sources (28 Indian, 12 not) over two runs plus a browser arm, classifies each into four states (OK, STALE, EMPTY, ERROR or BLOCKED), and documents four shapes of silent failure, two of them found inside programs written to prevent them. Ships the probing scripts, not just the tables.",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    { "name": "Gokul Sai", "affiliation": "Independent, Hyderabad, India" }
+  ],
+  "keywords": [
+    "web agents",
+    "data quality",
+    "monitoring",
+    "web scraping",
+    "structured data",
+    "schema.org",
+    "silent failure",
+    "four-state contract"
+  ]
+}

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it."
+title: "Empty Is Not Unreachable: four states a web-reading agent needs, and what happens in the twenty-eight sources that only have two"
+authors:
+  - given-names: Gokul
+    family-names: Sai
+type: article
+license: CC-BY-4.0
+url: "https://github.com/VGokulsai/falsezero"
+date-released: 2026-09-18
