@@ -4,6 +4,7 @@
 
 **Gokul Sai** · Hyderabad, India · Independent
 Version 2, 16 September 2026
+DOI: [10.5281/zenodo.22828298](https://doi.org/10.5281/zenodo.22828298)
 
 ---
 
@@ -353,3 +354,9 @@ visible text on each page.
 
 *Corrections welcome. If a source is misclassified here, the script that
 misclassified it is in this repository and the fix is a pull request.*
+
+---
+
+**Cite as:** Gokul Sai (2026). *Empty Is Not Unreachable: four states a
+web-reading agent needs, and what happens in the twenty-eight sources that only
+have two.* Zenodo. https://doi.org/10.5281/zenodo.22828298

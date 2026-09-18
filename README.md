@@ -1,5 +1,7 @@
 # Empty Is Not Unreachable
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22828298.svg)](https://doi.org/10.5281/zenodo.22828298)
+
 A web-reading agent needs four states, not two. **Nothing was there** is a
 result. **I could not look** is not. A program that prints them the same way
 lies exactly when it has failed.
